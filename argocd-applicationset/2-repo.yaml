@@ -1,0 +1,34 @@
+# https://argo-cd.readthedocs.io/en/latest/operator-manual/declarative-setup/
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: helm
+  namespace: argocd
+  labels:
+    argocd.argoproj.io/secret-type: repository
+stringData:
+  name: helm
+  url: https://gitlab.com/quickbooks2018/argocd-image-tag.git
+
+# Private repo
+# ---
+# apiVersion: v1
+# kind: Secret
+# metadata:
+#   name: helm
+#   namespace: argocd
+#   labels:
+#     argocd.argoproj.io/secret-type: repository
+# type: Opaque
+# stringData:
+#   url: "https://gitlab.com/quickbooks2018/argocd-image-tag.git"
+#   username: test
+#   password: "12345678"
+
+# Note:
+
+# The stringData field is used in secrets to provide a non-base64 encoded version of the secret. Any input provided as stringData will be converted into data (which is the base64 encoded version) by the Kubernetes API Server. stringData is write-only convenience field and it is never output when retrieving secrets.
+# In this example, the username is the name of the token and the password is the key of the token. When ArgoCD tries to access your GitLab repo, it will use these credentials for authentication. Please replace the test and 12345678 with your actual token name and key.
+# The url should be the URL of your repository.
+# Remember to replace the namespace if you are not deploying it into the argocd namespace.
