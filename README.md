@@ -235,7 +235,7 @@ helm upgrade --install cert-manager jetstack/cert-manager --version v1.13.1 --na
 
 - KarGo Installation
 ```bash
-helm install kargo \
+helm upgrade --install kargo \
   oci://ghcr.io/akuity/kargo-charts/kargo \
   --namespace kargo \
   --create-namespace \
