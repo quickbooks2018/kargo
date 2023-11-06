@@ -244,3 +244,8 @@ helm upgrade --install kargo \
   --set api.adminAccount.enabled=true \
   --wait
 ```
+
+- kargo default password
+```bash
+admin
+```
