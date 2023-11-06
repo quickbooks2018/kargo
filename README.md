@@ -241,6 +241,6 @@ helm install kargo \
   --create-namespace \
   --set api.adminAccount.password=admin \
   --set api.adminAccount.tokenSigningKey=iwishtowashmyirishwristwatch \
-  --set api.adminAccount.enabled=false \
+  --set api.adminAccount.enabled=true \
   --wait
 ```
