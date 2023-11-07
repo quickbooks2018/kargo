@@ -1,7 +1,8 @@
+---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: foo-dev
+  name: project-1
   labels:
     kargo.akuity.io/project: "true"
 ---
@@ -9,7 +10,7 @@ apiVersion: kargo.akuity.io/v1alpha1
 kind: Stage
 metadata:
   name: dev
-  namespace: foo-dev
+  namespace: project-1
 spec:
   subscriptions:
     repos:
