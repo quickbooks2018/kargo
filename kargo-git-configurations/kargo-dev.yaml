@@ -23,11 +23,11 @@ spec:
   promotionMechanisms:
     gitRepoUpdates:
     - repoURL: https://gitlab.com/quickbooks2018/argocd-image-tag.git
-      writeBranch: stages/dev
+      writeBranch: apps/charts/foo
       kustomize:
         images:
         - image: registry.gitlab.com/quickbooks2018/foo
-          path: stages/dev
+          path: apps/charts/foo
     argoCDAppUpdates:
     - appName: foo-dev
       appNamespace: argocd
