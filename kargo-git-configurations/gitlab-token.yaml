@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Secret
+metadata:
+  name: repo-argocd-image-tag-creds
+  namespace: kargo
+  labels:
+    kargo.akuity.io/secret-type: repo-creds
+stringData:
+  type: gitlab
+  url: https://gitlab.com/quickbooks2018/argocd-image-tag.git
+  username: kargo # or you can use 'gitlab' if username is not needed
+  password: puttokenhere

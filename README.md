@@ -366,3 +366,37 @@ helm upgrade --install kargo \
 ```bash
 admin
 ```
+
+- Kargo CLI Installation
+```bash
+arch=$(uname -m)
+[ "$arch" = "x86_64" ] && arch=amd64
+curl -L -o kargo https://github.com/akuity/kargo/releases/latest/download/kargo-$(uname -s | tr '[:upper:]' '[:lower:]')-${arch}
+chmod +x kargo
+mv kargo /usr/local/bin/
+kargo --help
+```
+
+- Karo port-forward
+```bash
+kubectl -n kargo port-forward svc/kargo-api --address 0.0.0.0 8090:443
+```
+
+- https://kargo.akuity.io/quickstart/
+- Karo login
+```bash
+kargo login https://localhost:8090 --insecure-skip-tls-verify --admin --password admin
+```
+
+- The kubectl command to merge a new kubeconfig file into an existing kubeconfig file is as follows:
+```bash
+KUBECONFIG=~/.kube/config:new-kube-config.yaml kubectl config view --flatten > merged-kube-config.yaml
+```
+- To remove a specific cluster configuration from an existing kubeconfig file, you would use kubectl config commands to unset the contexts, clusters, and users associated with that configuration. Below are the commands that you would use to remove the configuration for the cluster named kind-cloudgeeks-local-2:
+
+```bash
+kubectl config delete-cluster kind-cloudgeeks-local-2
+kubectl config delete-context kind-cloudgeeks-local-2
+kubectl config delete-user kind-cloudgeeks-local-2
+```
+
