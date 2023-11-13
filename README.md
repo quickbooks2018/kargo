@@ -533,3 +533,8 @@ kubectl config delete-context kind-cloudgeeks-local-2
 kubectl config delete-user kind-cloudgeeks-local-2
 ```
 
+- JQ utility
+```bash
+kubectl get secrets/argocd-initial-admin-secret -o json -n argocd | jq .data.password -r
+kubectl get secrets/argocd-initial-admin-secret -o json -n argocd | jq .data.password -r | base64 --decode
+```
